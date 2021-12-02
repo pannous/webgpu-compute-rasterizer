@@ -19,7 +19,7 @@ export default async function main(canvas: HTMLCanvasElement) {
 
   const device = await adapter.requestDevice();
 
-  const context = canvas.getContext("gpupresent");
+  const context = canvas.getContext("webgpu") || canvas.getContext("gpupresent");
 
   const swapChainFormat = await context.getSwapChainPreferredFormat(adapter as any);
 
